@@ -9,7 +9,7 @@
 using namespace std;
 
 //class for interfacing with database
-//constructor creates databas if it dosen't already exist 
+//constructor creates database if it dosen't already exist 
 //main has initial program logic to write words to database,
 //if selected class object is created and method for writing to database is created
 //                   *under construction*
