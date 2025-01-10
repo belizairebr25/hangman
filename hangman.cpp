@@ -5,7 +5,7 @@
 #include <string>
 #include "hangmangraphics.h"
 #include <vector>
-#include <sqlite3.h>
+//#include <sqlite3.h>
 using namespace std;
 
 //class for interfacing with database
@@ -100,14 +100,19 @@ int main(){
 	}
 	if(vW.win == true){
 		cout << "Good Job! You won!\n";
+		system("PAUSE");
 		return 0;
+
 	} else {
 		cout << "Better Luck next time\n" << "The word was: ";
 		for(int i =0; i < vW.wlen; i++){
 			cout << vW.guessword[i];
 		}
 		cout << "\n";
+		system("PAUSE");
 		return 0;
 	}
 }
+
+
 
