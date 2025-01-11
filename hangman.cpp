@@ -6,10 +6,8 @@
 #include "hangmangraphics.h"
 #include <vector>
 //#include <sqlite3.h>
-using namespace std;
-
 //class for interfacing with database
-//constructor creates database if it dosen't already exist 
+//constructor creates database if it dosen't already exist
 //main has initial program logic to write words to database,
 //if selected class object is created and method for writing to database is created
 //                   *under construction*
@@ -76,15 +74,15 @@ class vWclass{
 
 int main(){
 	vWclass vW;
-	cout << "Welcome to Hangman, the word length is: " << vW.wlen << "\n";
-	cout << "You have " << (vW.wlen * 2) << " guesses, good luck! ;3\n";
+	std::cout << "Welcome to Hangman, the word length is: " << vW.wlen << "\n";
+	std::cout << "You have " << (vW.wlen * 2) << " guesses, good luck! ;3\n";
 	for(int i = 0; i < (vW.wlen * 2); i++){
-		string input;
-		cout << "guess: ";
+		std::string input;
+		std::cout << "guess: ";
 		getline(cin, input);
 		vW.temping(input);
-		string output(vW.finalword.begin(), vW.finalword.end());
-		cout << output << "\n";
+		std::string output(vW.finalword.begin(), vW.finalword.end());
+		std::cout << output << "\n";
 		if(vW.win == true){
 			break;
 		} else {
@@ -92,27 +90,36 @@ int main(){
 			int x = (vW.wlen * 2) - i - 1;
 			draw(i);
 			if(x > 0){
-				cout << "he has " << x << " tries left\n";
+				std::cout << "he has " << x << " tries left\n";
 			}else if(x == 0){
-				cout << "he dieded 3:\n";
+				std::cout << "he dieded 3:\n";
 			}
 		}
 	}
 	if(vW.win == true){
-		cout << "Good Job! You won!\n";
+		std::cout << "Good Job! You won!\n";
+		#if defined(_WIN32)
 		system("PAUSE");
 		return 0;
-
+		#else
+			return 0;
+		#endif
 	} else {
-		cout << "Better Luck next time\n" << "The word was: ";
+		std::cout << "Better Luck next time\n" << "The word was: ";
 		for(int i =0; i < vW.wlen; i++){
-			cout << vW.guessword[i];
+			std::cout << vW.guessword[i];
 		}
-		cout << "\n";
-		system("PAUSE");
-		return 0;
+		std::cout << "\n";
+		#if defined(_WIN32)
+			system("PAUSE");
+			return 0;
+		#else
+			return 0;
+		#endif
 	}
 }
+
+
 
 
 
